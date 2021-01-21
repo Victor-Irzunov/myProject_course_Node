@@ -1,0 +1,31 @@
+<h1>Редактировать: {{prod.title}}</h1>
+
+
+<form action="/productsss/edit" method="POST">
+
+	<div class="input-field">
+		<input id="title" name="title" type="text" class="validate" value="{{prod.title}}" required>
+		<label for="title">Название курса</label>
+		<span class="helper-text" data-error="введите название">Helper text</span>
+	</div>
+
+	<div class="input-field">
+		<input id="price" name="price" type="number" class="validate" min="1" value="{{prod.price}}" required>
+		<label for="price">Цена курса</label>
+		<span class="helper-text" data-error="wrong">Helper text</span>
+	</div>
+
+	<div class="input-field">
+		<input id="img" type="text" name="img" class="validate" value="{{prod.img}}" required>
+		<label for="img">URL img</label>
+		<span class="helper-text" data-error="введите url картинки" data-success="right">Helper text</span>
+	</div>
+
+	
+
+	<input type="hidden" name="id" value="{{prod.id}}">
+
+	<button class="btn btn-primary">Редактировать</button>
+</form>
+{{!-- <input type="hidden" name="_csrf" value="{{csrf}}"> {{!-- _csrf на донное название удет смотреть middleware и автомат --
+	будет делать всёза нас ----//№60 - Добавление CSRF-защиты--}}
