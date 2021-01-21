@@ -1,0 +1,47 @@
+<h2 style="font-size: 34px;">Корзина</h2>
+
+<div id="card">
+	{{#if products1.length}}
+	<table>
+		<thead>
+			<tr>
+				<th>Название</th>
+				<th>Кол-во</th>
+				<th>Цена за 1 шт.</th>
+				<th>Итого цена</th>
+				<th>Действия</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			{{#each products1}}
+
+			<tr id="tr">
+				<td>{{title}}</td>
+				<td id="td">
+					<button class="btn waves-effect waves-light js-add__a" type="submit" name="action"
+						data-id='{{id}}'>+</button>
+					<span class="z">{{count}}</span>
+					<button class="btn waves-effect waves-light js-delete" type="submit" name="action"
+						data-id='{{id}}'>-</button>
+				</td>
+				<td class="pro__price">{{price}}</td>
+				<td class="pro__total">{{total}}</td>
+				<td>
+					<button class="btn btn-small js-remove" data-id='{{id}}'>X</button>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+	<p><strong>Общая цена: </strong><span class="price">{{price1}}</span></p>
+
+	<form action="/orders" method="POST">
+		<button type="submit" class="btn">Купить</button>
+	</form>
+
+	{{else}}
+	<p>Корзина пуста</p>
+	{{/if}}
+</div>
